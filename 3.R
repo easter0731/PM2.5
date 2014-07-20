@@ -11,7 +11,7 @@ NEI <- transform(NEI, year = factor(year))
 NEI <- transform(NEI, type = factor(type))
 
 ## Subset data of Baltimore City, Maryland 
-BalNEI<-subset(NEI, fips=="24510")
+BalNEI<-subset(NEI, fips %in% "24510")
 
 ## Sum the total emmissions according to the year
 BalEimmisions <-ddply(BalNEI, .(year, type), summarise, sum_Eimmisions = sum(Emissions, na.rm = TRUE))

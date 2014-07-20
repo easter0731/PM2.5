@@ -9,7 +9,7 @@ NEI <- readRDS("summarySCC_PM25.rds")
 NEI <- transform(NEI, year = factor(year))
 
 ## Subset data of Baltimore City, Maryland 
-BalNEI<-subset(NEI, fips=="24510")
+BalNEI<-subset(NEI, fips %in% "24510")
 
 ## Sum the total emmissions according to the year
 BalEimmisions <-ddply(BalNEI, .(year), summarise, sum_Eimmisions = sum(Emissions, na.rm = TRUE))
